@@ -3,6 +3,8 @@ package net.cnam.inf330;
 import org.junit.Test;
 import org.junit.function.ThrowingRunnable;
 
+import java.util.PriorityQueue;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,12 +12,29 @@ import static org.junit.Assert.*;
  */
 public class AirportSimulatorTest {
 
-    // TODO 2. Write a method for testing the PriorityQueue
+    //@Test
+    /*public void testPriorityQueue(){
+        PriorityQueue<Plane> PQPlane = new PriorityQueue<Plane>(new PlaneFuelComparator());
+        PQPlane.add(new Plane(1,"toto",true,4));
+        PQPlane.add(new Plane(2,"toto2",true,5));
+        PQPlane.add(new Plane(3,"toto3",true,2));
+        assertEquals(PQPlane
+
+    }*/
     //...
 
     /* TODO 5. Complete this method for testing the InvalidFuelCapacityException in the
         AirportSimulator::createPlane method
      */
+    @Test
+    public void testCreatePlane(){
+        AirportSimulator ap = new AirportSimulator();
+
+        assertThrows(InvalidFuelCapacityException.class,()->{
+            ap.createPlane(-1,true);
+        });
+    }
+
     @Test
     public void testInvalidFuelCapacityException() {
         AirportSimulator simulator = new AirportSimulator();
@@ -25,7 +44,7 @@ public class AirportSimulatorTest {
     }
 
     @Test
-    public void testScenario1() {
+    public void testScenario1() throws InvalidFuelCapacityException {
         // Simulate scenario 1
         AirportSimulator simulator = new AirportSimulator();
         simulator.simulateTurnWithNewPlanes(3, 3, new int[]{1, 1, 1});
