@@ -20,6 +20,7 @@ public class AirportSimulatorTest {
         PQPlane.add(new Plane(3,"toto3",true,2));
         assertEquals(PQPlane
 
+        // FIXME Test PriorityQueue ordering
     }*/
     //...
 

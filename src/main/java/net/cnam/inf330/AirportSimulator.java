@@ -7,14 +7,16 @@ import java.util.Queue;
 /**
  * Class for implementing the simulation system.
  */
-// TODO 6.a) Make AirportSimulator an Observer object
+// TODO FIXME 6.a) Make AirportSimulator an Observer object
 public class AirportSimulator {
 
     private final int NUM_RUNWAYS = 3;
 
     private int tick;
     private int planeCount;
+    // FIXME The initializations should be in the constructor
     // TODO 1.a) Declare a PriorityQueue to store the flying planes waiting to land
+    // FIXME The PlaneFuelComparator should be passed to the PriorityQueue
     private PriorityQueue<Plane> flyingPlanes = new PriorityQueue<Plane>();
     // TODO 1.b) Declare a Queue (LinkedList) to store the landed planes waiting to take off
     private Queue<Plane> landedPlanes = new LinkedList<Plane>();
